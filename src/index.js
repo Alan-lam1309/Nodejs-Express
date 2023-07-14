@@ -8,6 +8,10 @@ const port = 3000;
 
 const route = require('./route');
 
+const db = require('./config/db');
+db.connect();
+// const Schema = mongoose.Schema;
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(

@@ -5,6 +5,7 @@ npm i morgan --save-dev //log http request
 npm i express-handlebars //template
 npm i node-sass --save-dev
 npm i prettier linters husky --save-dev
+npm i mongoose
 
 mô hình MVC
 ![Alt text](image.png)
