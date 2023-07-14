@@ -1,11 +1,13 @@
 const Course = require('../model/Course');
+const { mutipleMongoToObject } = require('../../util/mongo');
 
 class SitesController {
-    async home(req, res) {
+    async home(req, res, next) {
         try {
-            res.json(await Course.find({}));
+            let courses = mutipleMongoToObject(await Course.find({}))
+            res.render('home', { courses });
         } catch (error) {
-            res.status(400).json({ error: 'ERROR!!!' });
+            next(error);
         }
     }
 
