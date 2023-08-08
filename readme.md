@@ -6,7 +6,7 @@ npm i express-handlebars //template
 npm i node-sass --save-dev
 npm i prettier linters husky --save-dev
 npm i mongoose
-npm i mongoose-slug-generator
+npm i mongoose-slug-updater
 
 mô hình MVC
 ![Alt text](image.png)

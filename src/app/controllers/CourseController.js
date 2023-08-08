@@ -21,11 +21,27 @@ class CourseController {
         let newCourse = new Courses(req.body);
         try {
             await newCourse.save();
-            res.redirect('/')
-        } catch (error) {
-            
-        }
+            res.redirect('/');
+        } catch (error) {}
+    }
 
+    async edit(req, res) {
+        let course = await Courses.findById(req.params.id);
+        res.render('courses/update', { course: mongoToObject(course) });
+    }
+
+    async update(req, res) {
+        await Courses.updateOne({_id: req.params.id}, req.body)
+        res.redirect('/me/stored/course')
+    }
+
+    async delete(req, res, next){
+        try {
+            await Courses.deleteOne({_id: req.params.id}, req.body)
+            res.redirect('back')
+        } catch (error) {
+            next();
+        }
     }
 }
 
